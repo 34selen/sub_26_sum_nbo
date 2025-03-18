@@ -14,20 +14,21 @@ uint32_t my_ntohl(uint32_t n)
 }
 int main(int argc, char *argv[])
 {
-    int count = argc - 1;
+    uint32_t count = argc - 1;
     uint32_t *array = (uint32_t *)calloc(count, sizeof(uint32_t));
-    printf("%d\n", count);
-    for (int i = 1; i <= count; i++)
+    uint32_t sum = 0;
+    // printf("%d\n", count);
+    for (int i = 0; i < count; i++)
     {
-        FILE *file = fopen(argv[i], "rb");
+        FILE *file = fopen(argv[i + 1], "rb");
         if (!file)
         {
             printf("Failed to open file");
             continue;
         }
-        if (fread(&array[i - 1], sizeof(uint32_t), 1, file) != 1)
+        if (fread(&array[i], sizeof(uint32_t), 1, file) != 1)
         {
-            printf("Failed to read data");
+            printf("read data error");
             fclose(file);
             continue;
         }
@@ -40,9 +41,10 @@ int main(int argc, char *argv[])
     }
     for (int i = 0; i < count; i++)
     {
-        printf("Raw value (Hex): 0x%X\n", array[i]);
-        printf("Raw value (Dec): %d\n", array[i]);
+        sum += array[i];
+        printf("%d(%#x) + ", array[i], array[i]);
     }
+    printf("\b\b= %d(%#x)", sum, sum);
 
     free(array);
     return 0;
