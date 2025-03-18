@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
         FILE *file = fopen(argv[i + 1], "rb");
         if (!file)
         {
-            printf("Failed to open file");
+            printf("open file error");
             continue;
         }
         if (fread(&array[i], sizeof(uint32_t), 1, file) != 1)
