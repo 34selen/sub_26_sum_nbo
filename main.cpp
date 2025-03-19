@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
         sum += array[i];                          // 하나씩 더하기기
         printf("%d(%#x) + ", array[i], array[i]); // 더하기 출력력
     }
-    printf("\b\b= %d(%#x)", sum, sum);
+    printf("\b\b= %d(%#x)\n", sum, sum);
 
     free(array);
     return 0;
