@@ -1,7 +1,7 @@
 #Makefile
-all:sum_nbo
+all:sum-nbo
 
 sum_nbo:
-	g++ main.cpp -o sum_nbo
+	g++ main.cpp -o sum-nbo
 clean:
-	rm -f sum_nbo
+	rm -f sum-nbo
