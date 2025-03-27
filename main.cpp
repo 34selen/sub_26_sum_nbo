@@ -40,10 +40,6 @@ int main(int argc, char *argv[])
         }
 
         fclose(file);
-    }
-
-    for (int i = 0; i < count; i++)
-    {
         array[i] = my_ntohl(array[i]);            // 바이트 순서 뒤집기기
         sum += array[i];                          // 하나씩 더하기기
         printf("%d(%#x) + ", array[i], array[i]); // 더하기 출력력
