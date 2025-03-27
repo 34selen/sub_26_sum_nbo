@@ -12,8 +12,14 @@ uint32_t my_ntohl(uint32_t n)
     }
     return output;
 }
+
 int main(int argc, char *argv[])
 {
+    if (argc == 1)
+    {
+        printf("no file");
+        return 1;
+    }
     uint32_t count = argc - 1;
     uint32_t *array = (uint32_t *)calloc(count, sizeof(uint32_t)); // 인자 개수만큼 배열 생성
     uint32_t sum = 0;
@@ -38,10 +44,7 @@ int main(int argc, char *argv[])
 
     for (int i = 0; i < count; i++)
     {
-        array[i] = my_ntohl(array[i]); // 바이트 순서 뒤집기기
-    }
-    for (int i = 0; i < count; i++)
-    {
+        array[i] = my_ntohl(array[i]);            // 바이트 순서 뒤집기기
         sum += array[i];                          // 하나씩 더하기기
         printf("%d(%#x) + ", array[i], array[i]); // 더하기 출력력
     }
