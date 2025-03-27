@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
         if (fread(&array[i], sizeof(uint32_t), 1, file) != 1) // 파일 읽어서 array에 저장
         {
             printf("less then 4 byte"); // 읽기 에러(4바이트 이하)
+            free(array);
             fclose(file);
             return (1);
         }
